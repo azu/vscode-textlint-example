@@ -1,8 +1,6 @@
-# VS Codeでtextlintを使って文章をチェックする
+[textlint](https://textlint.github.io/ "textlint")での文章チェックを[VS Code](https://code.visualstudio.com/ "VS Code")上で行う方法についての話です。
 
-[textlint](https://textlint.github.io/ "textlint")での文章チェックを[VS Code](https://code.visualstudio.com/ "VS Code")上で行う方法についてのメモ。
-
-VS Codeでtextlintを動かく拡張してvscode-textlintがあるのでそれをインストールして動かすまでの流れを見ていきます。
+VS Codeでtextlintを動かす拡張として[vscode-textlint](https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint)があるのでそれをインストールして動かすまでの流れを見ていきます。
 （vscode-textlintでグローバルの設定を使う方法はよくわからなかったので、今回はプロジェクトのローカルにインストールしたtextlintを使うまでの見ていきます）
 
 - [vscode-textlint - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint "vscode-textlint - Visual Studio Marketplace")
@@ -24,7 +22,7 @@ ext install vscode-textlint
 適当なディレクトリを作ります。
 今回は、`vscode-textlint-example/`という名前のディレクトリを作ってみます。
 
-以下の実際に作ったリポジトリがあるので、次のコマンドで試すことができます。
+実際に作ったリポジトリがあるので、cloneすれば次のコマンドで試すことができます。
 
 ```sh
 git clone https://github.com/azu/vscode-textlint-example.git
