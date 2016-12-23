@@ -95,6 +95,30 @@ npm install --save-dev textlint textlint-rule-preset-ja-technical-writing
 ```
 
 インストールできたら、`node_modules/`というディレクトリにモジュールがインストールされています。
-また、`pacakage.json`が更新され、インストールしたモジュールの一覧が追記されています。
+また、`pacakage.json`が更新され、インストールしたモジュールの[一覧が追記](https://github.com/azu/vscode-textlint-example/commit/0bccd013e3f0881b974e526b42292d57f09aab56)されています。
 
+### textlintの設定
 
+次にtextlintで利用するルールを設定してみます。
+textlintの設定には`.textlintrc`という設定ファイルに、利用するルールを記述していきます。
+
+ローカルにインストールした時に、`./node_modules/.bin/textlint`へ`textlint`コマンドもインストールされています。
+`textlint --init`コマンドを叩くことで、設定ファイルを自動的に作成してくれます。
+
+```sh
+$ ./node_modules/.bin/textlint --init
+# またはnpm binコマンドを使って
+$ $(npm bin)/textlint --init
+```
+
+作成した`.textlintrc`には、そのプロジェクトにインストールしている(`package.json`に書かれてる)tetlintのルールを自動で記述してくれます。
+そのため、これで設定は完了です。
+
+```json
+{
+  "filters": {},
+  "rules": {
+    "preset-ja-technical-writing": true
+  }
+}
+```
