@@ -73,7 +73,8 @@ Is this ok? (yes)
 ### textlintのインストール
 
 textlintをローカルにインストールします。
-この辺は、通常のtextlintのインストールと同じなので既に色々な環境でのインストール方法があるので参考にしてみてください。
+この辺は、通常のtextlintのインストールと同じなのです。
+既に色々な環境でのインストール方法があるので参考にしてみてください。
 
 - [textlint/getting-started.md at master · textlint/textlint](https://github.com/textlint/textlint/blob/master/docs/getting-started.md)
 - [textlintで日本語の文章をチェックする | Web Scratch](http://efcl.info/2015/09/10/introduce-textlint/)
