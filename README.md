@@ -102,7 +102,7 @@ npm install --save-dev textlint textlint-rule-preset-ja-technical-writing
 次にtextlintで利用するルールを設定してみます。
 textlintの設定には`.textlintrc`という設定ファイルに、利用するルールを記述していきます。
 
-ローカルにインストールした時に、`./node_modules/.bin/textlint`へ`textlint`コマンドもインストールされています。
+ローカルへインストールした時に、`./node_modules/.bin/textlint`へ`textlint`コマンドもインストールされています。
 `textlint --init`コマンドを叩くことで、設定ファイルを自動的に作成してくれます。
 
 ```sh
@@ -122,3 +122,29 @@ $ $(npm bin)/textlint --init
   }
 }
 ```
+
+## VSCodeで開く
+
+後は、作成したプロジェクトをVSCodeで開くだけです。
+
+```sh
+vscode ./
+```
+
+開いて見るとtextlintでエラーとなっている場所が既にありました。
+
+![VSCode with textlint](https://monosnap.com/file/X6XVskvC2XCZ5sPtZ0sVWP50yEXEns.png)
+
+`textlint`コマンドを使うことでも同じエラーをコマンドラインでみることができます。
+
+```sh
+$ $(npm bin)/textlint README.md
+
+/Users/azu/.ghq/github.com/azu/vscode-textlint-example/README.md
+  105:15  error  一文に二回以上利用されている助詞 "に" がみつかりました。  preset-ja-technical-writing/no-doubled-joshi
+  134:34  error  一文に二回以上利用されている助詞 "が" がみつかりました。  preset-ja-technical-writing/no-doubled-joshi
+
+✖ 2 problems (2 errors, 0 warnings)
+```
+
+後は、エラーに沿って文章を直していくだけです。
