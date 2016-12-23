@@ -83,7 +83,7 @@ textlintをローカルにインストールします。
 - [Ubuntu 15.04でtextlint - メモ](http://mickey-happygolucky.hatenablog.com/entry/2016/05/22/141054)
 
 また、textlintはデフォルトでは何もルールを持っていないため何もチェックできません。
-そのため、合わせて幾つかルールをインストールしてみます。
+そのため、同時にルールもインストールしてみます。
 
 textlint本体と[textlint-rule-preset-ja-technical-writing](https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing "textlint-rule-preset-ja-technical-writing")という技術書向けのルールセットをインストールしてみます。
 インストールには、npmの`npm install`コマンドを使うだけです。
