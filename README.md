@@ -3,7 +3,7 @@
 [textlint](https://textlint.github.io/ "textlint")での文章チェックを[VS Code](https://code.visualstudio.com/ "VS Code")上で行う方法についての話です。
 
 VS Codeでtextlintを動かす拡張として[vscode-textlint](https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint)があるのでそれをインストールして動かすまでの流れを見ていきます。
-（vscode-textlintでグローバルの設定を使う方法はよくわからなかったので、今回はプロジェクトのローカルにインストールしたtextlintを使うまでの見ていきます）
+（vscode-textlintでグローバルの設定を使う方法はよくわからなかったので、今回はプロジェクトのローカルにインストールしたtextlintを使うまでの手順を見ていきます）
 
 - [vscode-textlint - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint "vscode-textlint - Visual Studio Marketplace")
 
