@@ -213,3 +213,17 @@ rules:
 ```sh
 $ $(npm bin)/textlint --fix README.md
 ```
+
+## おわりに
+
+vscode-textlintを使うことでリアルタイムにチェックしながら文章を書くことができます。
+紹介してませんが、設定でタイプ時または保存時どちらのタイミングでチェックするかを設定できます。
+
+- [textlint - pluggable linting tool for text and markdown](https://textlint.github.io/)
+- [azu/vscode-textlint-example: VS Codeを使ったtextlint projectのサンプル](https://github.com/azu/vscode-textlint-example)
+- [vscode-textlint - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint "vscode-textlint - Visual Studio Marketplace")
+
+textlintはコマンドラインツールですが、他にもAtomやVimなどのエディタやブラウザでも動かすことができます。
+詳しくはREADMEの方を見てみてください。
+
+- [https://github.com/textlint/textlint#editors](https://github.com/textlint/textlint#editors)
