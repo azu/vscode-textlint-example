@@ -1,21 +1,21 @@
-# VSCodeでtextlintを使って文章をチェックする
+# VS Codeでtextlintを使って文章をチェックする
 
 [textlint](https://textlint.github.io/ "textlint")での文章チェックを[VS Code](https://code.visualstudio.com/ "VS Code")上で行う方法についてのメモ。
 
-VSCodeでtextlintを動かく拡張してvscode-textlintがあるのでそれをインストールして動かすまでの流れを見ていきます。
+VS Codeでtextlintを動かく拡張してvscode-textlintがあるのでそれをインストールして動かすまでの流れを見ていきます。
 （vscode-textlintでグローバルの設定を使う方法はよくわからなかったので、今回はプロジェクトのローカルにインストールしたtextlintを使うまでの見ていきます）
 
 - [vscode-textlint - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint "vscode-textlint - Visual Studio Marketplace")
 
 ## インストール
 
-VSCodeを開き、Cmd+P(Ctrl+P)でコマンドパレットを開いて、拡張をインストールするだけです。
+VS Codeを開き、Cmd+P(Ctrl+P)でコマンドパレットを開いて、拡張をインストールするだけです。
 
 ```
 ext install vscode-textlint
 ```
 
-既に、textlintの設定をしているプロジェクト(node_modulesにtextlintやルールがインストールされていて、.textlintrcが配置されている場所)なら、VSCodeでそのディレクトリを開くだけで動作します。
+既に、textlintの設定をしているプロジェクト(node_modulesにtextlintやルールがインストールされていて、.textlintrcが配置されている場所)なら、VS Codeでそのディレクトリを開くだけで動作します。
 
 今回は、textlintを設定したプロジェクトを作る所からやってみます。
 
@@ -123,9 +123,9 @@ $ $(npm bin)/textlint --init
 }
 ```
 
-## VSCodeで開く
+## VS Codeで開く
 
-後は、作成したプロジェクトをVSCodeで開くだけです。
+後は、作成したプロジェクトをVS Codeで開くだけです。
 
 ```sh
 vscode ./
@@ -148,3 +148,68 @@ $ $(npm bin)/textlint README.md
 ```
 
 後は、エラーに沿って文章を直していくだけです。
+
+## 間違いを自動修正する
+
+ここまで[Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code - Code Editing. Redefined")のことを`VSCode`と書いてることに気づきました。
+公式サイトを見てみると、`VS Code`と書くのが正しいようです。
+
+文章を書いているとこういうスペル的なミスはよくあるので意識していても回避することが難しいです。
+[textlint-rule-prh](https://github.com/azu/textlint-rule-prh "textlint-rule-prh")というルールと辞書を作ってチェックしてみましょう。
+
+- [textlint + prhで表記ゆれを検出する | Web Scratch](http://efcl.info/2015/09/14/textlint-rule-prh/ "textlint + prhで表記ゆれを検出する | Web Scratch")
+
+まずは、[textlint-rule-prh](https://github.com/azu/textlint-rule-prh "textlint-rule-prh")をインストールします。
+
+```sh
+$ npm install --save-dev textlint-rule-prh
+```
+
+次に、textlint-rule-prhで使う辞書を作成します。
+辞書と言っても正規表現書いたただのymlファイルを作るだけです。
+詳しくは次のファイルを参考にしてみてください。
+
+- [prh/prh.yml at master · prh/prh](https://github.com/prh/prh/blob/master/misc/prh.yml "prh/prh.yml at master · prh/prh")
+
+`prh.yml`というファイルを作成して、次のように`VSCode`は`VS Code`という綴りにするという設定を書きます。
+
+```yml
+version: 1
+rules:
+  - expected: VS Code
+    patterns: VSCode
+    prh: 公式サイトによるとVS Codeらしい
+```
+
+次に、`.textlintrc`にprhを使う設定をします。
+`prh`の`rulePaths`に辞書ファイルへのパスを指定します。
+
+```json
+{
+  "filters": {},
+  "rules": {
+    "preset-ja-technical-writing": true,
+    "prh": {
+      "rulePaths": ["./prh.yml"]
+    }
+  }
+}
+```
+
+この設定をすれば、`VSCode => VS Code`というエラーが自動的に検出されます。
+
+![VSCode -> VS Code](https://monosnap.com/file/u6vzhtbQ0qMMv6EYxJ7PORfflYNu7t.png)
+
+### 自動修正する
+
+[vscode-textlint](https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint "vscode-textlint - Visual Studio Marketplace")は、textlintの`--fix`にも対応しています。
+エラーが出ている行でAlt+Enterを押せば、自動的にエラーを修正することができます。
+(修正できるかはルールによってことなりますが、prhの辞書なら自動修正が可能です)
+
+![autofix](http://i.giphy.com/3o7TKty7QymM429YE8.gif)
+
+`textlint --fix`でも同じように自動修正が可能です。
+
+```sh
+$ $(npm bin)/textlint --fix README.md
+```
