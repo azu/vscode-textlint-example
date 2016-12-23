@@ -1,3 +1,5 @@
+# VS Codeでtextlintを使って文章をチェックする
+
 [textlint](https://textlint.github.io/ "textlint")での文章チェックを[VS Code](https://code.visualstudio.com/ "VS Code")上で行う方法についての話です。
 
 VS Codeでtextlintを動かす拡張として[vscode-textlint](https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint)があるのでそれをインストールして動かすまでの流れを見ていきます。
